@@ -11,6 +11,7 @@ Vagrant.configure(2) do |config|
         ansible.playbook = "bootstrap-centos67.yml"
         ansible.verbose = "v"
         ansible.extra_vars = {
+          env: "local",
           ansible_ssh_user: "vagrant"
         }
       end

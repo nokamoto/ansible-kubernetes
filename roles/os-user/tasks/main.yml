@@ -1,0 +1,18 @@
+- group: name={{ os_admin_group }} gid={{ os_admin_gid }} state=present
+  become: yes
+
+- user: name={{ os_admin_user }} uid={{ os_admin_uid }} groups={{ os_admin_group }},wheel state=present
+  become: yes
+
+- authorized_key: user={{ os_admin_user }} key="{{ item }}"
+  with_file:
+    - "{{ id_rsa_pub }}"
+  become: yes
+
+- copy:
+    src={{ id_rsa }}
+    dest=/home/{{ os_admin_user }}/.ssh/id_rsa
+    owner={{ os_admin_user }}
+    group={{ os_admin_group }}
+    mode=600
+  become: yes
