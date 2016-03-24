@@ -1,3 +1,8 @@
+- yum: name={{ item }} state=present
+  with_items:
+    - libselinux-python
+  become: yes
+
 - group: name={{ os_admin_group }} gid={{ os_admin_gid }} state=present
   become: yes
 
