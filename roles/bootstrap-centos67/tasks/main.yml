@@ -1,7 +1,2 @@
-- yum: name={{ item }} state=present
-  with_items:
-    - libselinux-python
-  become: yes
-
 - template: src=wheel.j2 dest=/etc/sudoers.d/wheel owner=root group=root mode=644
   become: yes
