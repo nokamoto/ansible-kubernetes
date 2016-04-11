@@ -5,3 +5,5 @@ install:
   - pip install ansible
 script:
   - ansible-playbook bootstrap-centos71.yml --syntax-check
+  - ansible-playbook kubernetes-master-centos71.yml --syntax-check
+  - ansible-playbook kubernetes-minion-centos71.yml --syntax-check

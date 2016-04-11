@@ -1,0 +1,22 @@
+- yum: name=etcd-2.2.5-1.el7 state=present
+  become: yes
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=1201965
+- file: path=/var/run/kubernetes state=directory owner=kube group=kube mode=755
+  become: yes
+
+- template: src=etcd.conf.j2 dest=/etc/etcd/etcd.conf owner=root group=root mode=644
+  become: yes
+
+- template: src=apiserver.j2 dest=/etc/kubernetes/apiserver owner=root group=root mode=644
+  become: yes
+
+- service: name={{ item }} state=started enabled=yes
+  with_items:
+    - etcd
+    - kube-apiserver
+    - kube-controller-manager
+    - kube-scheduler
+  become: yes
+
+- command: etcdctl set {{ flannel_etcd_key }}/config '{"Network":"{{ flannel_ip_range }}"}'
