@@ -1,5 +1,5 @@
 - template: src=hosts.j2 dest=/etc/hosts owner=root group=root mode=644
   become: yes
 
-- hostname: name={{ hostnames[inventory_hostname] }}
+- hostname: name={{ os_hostname }}
   become: yes
