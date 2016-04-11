@@ -4,7 +4,7 @@
 Vagrant.configure(2) do |config|
   config.ssh.insert_key = false
 
-  N = 2
+  N = 3
   (1..N).each do |id|
     config.vm.define "node#{id}" do |node|
       node.vm.box = "bento/centos-7.1"
