@@ -18,7 +18,6 @@ Vagrant.configure(2) do |config|
             ansible.limit = "all"
             ansible.inventory_path = "./local"
             ansible.playbook = playbook
-            ansible.extra_vars = { env: "local" }
           end
         end
       end

@@ -2,6 +2,3 @@ os_admin_group: admin
 os_admin_gid: 2000
 os_admin_user: admin
 os_admin_uid: 2000
-
-id_rsa: keys/{{ env }}
-id_rsa_pub: "{{ id_rsa }}.pub"
