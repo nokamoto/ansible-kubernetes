@@ -3,6 +3,9 @@ etc_hosts: |
   192.168.33.12 node2
   192.168.33.13 node3
 
+os_admin_id_rsa: keys/local
+os_admin_id_rsa_pub: keys/local.pub
+
 kubernetes_master: node1
 kubernetes_cluster_ip_range: 10.254.0.0/16
 kubernetes_dns_ip: 10.254.0.10
