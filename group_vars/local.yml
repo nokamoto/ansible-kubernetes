@@ -2,3 +2,12 @@ etc_hosts: |
   192.168.33.11 node1
   192.168.33.12 node2
   192.168.33.13 node3
+
+kubernetes_master: node1
+kubernetes_cluster_ip_range: 10.254.0.0/16
+kubernetes_dns_ip: 10.254.0.10
+kubernetes_dns_domain: cluster.local
+
+flannel_ip_range: 10.1.0.0/16
+flannel_iface: enp0s8
+flannel_etcd_key: /atomic.io/network

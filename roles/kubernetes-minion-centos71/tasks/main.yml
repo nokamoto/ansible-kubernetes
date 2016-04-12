@@ -1,0 +1,19 @@
+- yum: name=flannel-0.5.3-9.el7 state=present
+  become: yes
+
+- template: src=flanneld.j2 dest=/etc/sysconfig/flanneld owner=root group=root mode=644
+  become: yes
+
+- template: src={{ item }}.j2 dest=/etc/kubernetes/{{ item }} owner=root group=root mode=644
+  with_items:
+    - proxy
+    - kubelet
+  become: yes
+
+- service: name={{ item }} state=started enabled=yes
+  with_items:
+    - flanneld
+    - kube-proxy
+    - kubelet
+    - docker
+  become: yes

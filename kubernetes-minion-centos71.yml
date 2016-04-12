@@ -1,0 +1,3 @@
+- hosts: kubernetesminion
+  roles:
+    - kubernetes-minion-centos71
