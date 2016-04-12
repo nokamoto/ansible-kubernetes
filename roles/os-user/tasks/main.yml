@@ -11,11 +11,11 @@
 
 - authorized_key: user={{ os_admin_user }} key="{{ item }}"
   with_file:
-    - "{{ id_rsa_pub }}"
+    - "{{ os_admin_id_rsa_pub }}"
   become: yes
 
 - copy:
-    src={{ id_rsa }}
+    src={{ os_admin_id_rsa }}
     dest=/home/{{ os_admin_user }}/.ssh/id_rsa
     owner={{ os_admin_user }}
     group={{ os_admin_group }}
