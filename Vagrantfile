@@ -16,7 +16,6 @@ Vagrant.configure(2) do |config|
           ansible.limit = "all"
           ansible.inventory_path = "./local"
           ansible.playbook = "bootstrap-centos71.yml"
-          ansible.extra_vars = { env: "local" }
         end
       end
     end
