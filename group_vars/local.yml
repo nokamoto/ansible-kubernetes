@@ -10,6 +10,8 @@ kubernetes_master: node1
 kubernetes_cluster_ip_range: 10.254.0.0/16
 kubernetes_dns_ip: 10.254.0.10
 kubernetes_dns_domain: cluster.local
+kubernetes_dns_replicas: 1
+kubernetes_dns_master_ip: 192.168.33.11
 
 flannel_ip_range: 10.1.0.0/16
 flannel_iface: enp0s8
