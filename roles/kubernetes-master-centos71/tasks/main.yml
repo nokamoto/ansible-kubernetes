@@ -20,3 +20,14 @@
   become: yes
 
 - command: etcdctl set {{ flannel_etcd_key }}/config '{"Network":"{{ flannel_ip_range }}"}'
+
+- set_fact: yaml_dir=/home/{{ os_admin_user }}/kubernetes
+
+- file: path={{ yaml_dir }} state=directory owner={{ os_admin_user }} group={{ os_admin_group }} mode=755
+  become: yes
+
+- template: src={{ item }}.j2 dest={{ yaml_dir }}/{{ item }} owner={{ os_admin_user }} group={{ os_admin_group }} mode=644
+  with_items:
+    - skydns-rc.yaml
+    - skydns-svc.yaml
+  become: yes
