@@ -1,0 +1,2 @@
+- file: path={{ kubernetes_yaml_directory }} state=directory owner={{ os_admin_user }} group={{ os_admin_group }} mode=755
+  become: yes

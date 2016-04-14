@@ -7,3 +7,5 @@ script:
   - ansible-playbook bootstrap-centos71.yml --syntax-check
   - ansible-playbook kubernetes-master-centos71.yml --syntax-check
   - ansible-playbook kubernetes-minion-centos71.yml --syntax-check
+  - ansible-playbook dockerfile.yml --syntax-check
+  - ansible-playbook kubernetes-yaml.yml --syntax-check

@@ -1,0 +1,4 @@
+- hosts: kubernetesmaster
+  roles:
+    - kubernetes-yaml-skydns
+    - kubernetes-yaml-rabbitmq

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq-svc
+spec:
+  selector:
+    app: rabbitmq
+  type: NodePort
+  ports:
+    - name: epmd
+      port: 4369
+    - name: rabbitmq-amqp
+      port: 5672
+    - name: rabbitmq-management
+      port: 15672
+    - name: erlang
+      port: 25672

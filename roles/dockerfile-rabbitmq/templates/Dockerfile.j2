@@ -1,0 +1,23 @@
+FROM centos:centos7.1.1503
+
+RUN yum -y install https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+
+RUN yum -y install rabbitmq-server-3.3.5-17.el7
+
+COPY rabbitmq.config /etc/rabbitmq/rabbitmq.config
+
+RUN chown rabbitmq:rabbitmq /etc/rabbitmq/rabbitmq.config
+
+RUN chmod 644 /etc/rabbitmq/rabbitmq.config
+
+COPY .erlang.cookie /var/lib/rabbitmq/.erlang.cookie
+
+RUN chown rabbitmq:rabbitmq /var/lib/rabbitmq/.erlang.cookie
+
+RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
+
+RUN rabbitmq-plugins enable rabbitmq_management
+
+EXPOSE 4369 5671 5672 15672 25672
+
+CMD rabbitmq-server
