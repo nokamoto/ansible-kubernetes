@@ -2,3 +2,6 @@ os_admin_group: admin
 os_admin_gid: 2000
 os_admin_user: admin
 os_admin_uid: 2000
+
+dockerfile_directory: /home/{{ os_admin_user }}/docker
+kubernetes_yaml_directory: /home/{{ os_admin_user }}/kubernetes
