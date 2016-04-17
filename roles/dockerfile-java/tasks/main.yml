@@ -1,16 +1,14 @@
-- set_fact: dir={{ dockerfile_directory }}/rabbitmq
+- set_fact: dir={{ dockerfile_directory }}/java
 
 - file: path={{ dir }} state=directory owner={{ os_admin_user }} group={{ os_admin_group }} mode=755
   become: yes
 
 - template: src={{ item }}.j2 dest={{ dir }}/{{ item }} owner={{ os_admin_user }} group={{ os_admin_group }} mode=644
   with_items:
-    - rabbitmq.config
-    - .erlang.cookie
     - Dockerfile
   become: yes
 
-- command: docker build -t {{ docker_rabbitmq }} .
+- command: docker build -t {{ docker_java }} .
   args:
     chdir: "{{ dir }}"
   become: yes

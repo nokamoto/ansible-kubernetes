@@ -4,14 +4,8 @@
       - rabbitmq-svc.yaml
       - rabbitmq-two.yaml
       - rabbitmq-two-svc.yaml
+      - scala-rabbitmq-test.yaml
 
 - template: src={{ item }}.j2 dest={{ kubernetes_yaml_directory }}/{{ item }} owner={{ os_admin_user }} group={{ os_admin_group }} mode=644
   with_items: yamls
   become: yes
-
-- command: kubectl create -f {{ item }}
-  args:
-    chdir: "{{ kubernetes_yaml_directory }}"
-  with_items: yamls
-  become: yes
-  failed_when: false

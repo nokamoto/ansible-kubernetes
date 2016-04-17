@@ -5,3 +5,7 @@ os_admin_uid: 2000
 
 dockerfile_directory: /home/{{ os_admin_user }}/docker
 kubernetes_yaml_directory: /home/{{ os_admin_user }}/kubernetes
+
+docker_java: local/java
+docker_rabbitmq: local/rabbitmq
+docker_scala_rabbitmq_test: local/scala-rabbitmq-test
