@@ -1,0 +1,8 @@
+FROM {{ docker_java }}
+
+RUN wget https://github.com/nokamoto/scala-rabbitmq-test/releases/download/20160417/scala-rabbitmq-test.jar
+
+ENV RABBITMQ_HOST localhost
+ENV RABBITMQ_PORT 5672
+
+CMD java -Dhost=${RABBITMQ_HOST} -Dport=${RABBITMQ_PORT} -jar scala-rabbitmq-test.jar

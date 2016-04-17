@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: rabbitmq
-    image: local/rabbitmq
+    image: {{ docker_rabbitmq }}
     env:
       - name: HOSTNAME
         value: rabbitmq-svc
