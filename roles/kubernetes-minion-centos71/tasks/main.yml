@@ -10,6 +10,12 @@
     - kubelet
   become: yes
 
+- file: path=/etc/docker/certs.d/registry:5000 state=directory owner=root group=root mode=755
+  become: yes
+
+- copy: src=server.crt dest=/etc/docker/certs.d/registry:5000/server.crt owner=root group=root mode=644
+  become: yes
+
 - service: name={{ item }} state=started enabled=yes
   with_items:
     - flanneld
