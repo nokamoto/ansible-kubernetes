@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
       node.vm.network "private_network", ip: "192.168.33.#{10+id}"
 
       if id == N
-        playbooks = ["bootstrap-centos71.yml", "kubernetes-master-centos71.yml", "kubernetes-minion-centos71.yml", "dockerfile.yml", "kubernetes-yaml.yml"]
+        playbooks = ["bootstrap-centos71.yml", "kubernetes-master-centos71.yml", "kubernetes-minion-centos71.yml", "kubernetes-yaml.yml"]
         playbooks.each do |playbook|
           node.vm.provision :ansible do |ansible|
             ansible.verbose = "v"

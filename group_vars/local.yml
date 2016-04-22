@@ -2,6 +2,7 @@ etc_hosts: |
   192.168.33.11 node1
   192.168.33.12 node2
   192.168.33.13 node3
+  192.168.33.21 registry
 
 os_admin_id_rsa: keys/local
 os_admin_id_rsa_pub: keys/local.pub
@@ -16,3 +17,6 @@ kubernetes_dns_master_ip: 192.168.33.11
 flannel_ip_range: 10.1.0.0/16
 flannel_iface: enp0s8
 flannel_etcd_key: /atomic.io/network
+
+docker_rabbitmq: registry:5000/local/rabbitmq
+docker_scala_rabbitmq_test: registry:5000/local/scala-rabbitmq-test
