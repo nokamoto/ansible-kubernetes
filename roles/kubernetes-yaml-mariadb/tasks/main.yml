@@ -1,0 +1,13 @@
+- set_fact:
+    yamls:
+      - mariadb.yaml
+      - mariadb-svc.yaml
+      - mariadb-two.yaml
+      - mariadb-two-svc.yaml
+      - mariadb-three.yaml
+      - mariadb-three-svc.yaml
+      - scala-mariadb-test.yaml
+
+- template: src={{ item }}.j2 dest={{ kubernetes_yaml_directory }}/{{ item }} owner={{ os_admin_user }} group={{ os_admin_group }} mode=644
+  with_items: yamls
+  become: yes

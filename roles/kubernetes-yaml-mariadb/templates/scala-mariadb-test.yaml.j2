@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: scala-mariadb-test
+  labels:
+    app: scala-mariadb-test
+spec:
+  containers:
+  - name: scala-mariadb-test
+    image: {{ docker_scala_mariadb_test }}
+    env:
+      - name: MARIADB_HOSTS
+        value: mariadb-svc,mariadb-two-svc,mariadb-three-svc
+      - name: MARIADB_USERNAME
+        value: admin
+      - name: MARIADB_PASSWORD
+        value: admin

@@ -39,3 +39,16 @@ kubectl exec rabbitmq-two -- rabbitmqctl stop_app
 kubectl exec rabbitmq-two -- rabbitmqctl join_cluster rabbit@rabbitmq-svc
 kubectl exec rabbitmq-two -- rabbitmqctl start_app
 ```
+
+### MariaDB Galera Cluster
+```
+ssh -i keys/local admin@192.168.33.11
+kubectl create -f kubernetes/mariadb.yaml
+kubectl create -f kubernetes/mariadb-svc.yaml
+kubectl create -f kubernetes/mariadb-two.yaml
+kubectl create -f kubernetes/mariadb-two-svc.yaml
+kubectl create -f kubernetes/mariadb-three.yaml
+kubectl create -f kubernetes/mariadb-three-svc.yaml
+kubectl create -f kubernetes/scala-mariadb-test.yaml
+kubectl get pods -w
+```
