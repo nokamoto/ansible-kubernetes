@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mariadb
+  labels:
+    app: mariadb
+spec:
+  containers:
+  - name: mariadb
+    image: {{ docker_mariadb }}
+    args:
+      - --wsrep-new-cluster
+      - --wsrep_cluster_address=gcomm://mariadb-two-svc,mariadb-three-svc
+    env:
+      - name: HOSTNAME
+        value: mariadb-svc
+    ports:
+      - containerPort: 3306
+      - containerPort: 4567
+      - containerPort: 4568
+      - containerPort: 4444
