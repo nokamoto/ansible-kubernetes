@@ -52,3 +52,19 @@ kubectl create -f kubernetes/mariadb-three-svc.yaml
 kubectl create -f kubernetes/scala-mariadb-test.yaml
 kubectl get pods -w
 ```
+
+### GRPC server/client
+```
+ssh -i keys/local admin@192.168.33.11
+kubectl create -f kubernetes/scala-grpc-test-server.yaml
+kubectl create -f kubernetes/scala-grpc-test-server-svc.yaml
+kubectl get pods -w
+kubectl logs -f scala-grpc-test-client
+```
+
+```
+ssh -i keys/local admin@192.168.33.11
+kubectl create -f kubernetes/scala-grpc-test-client.yaml
+kubectl get pods -w
+kubectl logs -f scala-grpc-test-client
+```

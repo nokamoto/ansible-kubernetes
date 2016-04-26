@@ -3,3 +3,4 @@
     - kubernetes-yaml-skydns
     - kubernetes-yaml-rabbitmq
     - kubernetes-yaml-mariadb
+    - kubernetes-yaml-grpc
