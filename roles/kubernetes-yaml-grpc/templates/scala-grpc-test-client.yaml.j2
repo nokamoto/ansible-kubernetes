@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: scala-grpc-test-client
+  labels:
+    app: scala-grpc-test-client
+spec:
+  containers:
+  - name: scala-grpc-test-client
+    image: {{ docker_scala_grpc_test_client }}
+    env:
+      - name: GRPC_HOST
+        value: s-grpc-t-server-svc
+      - name: GRPC_PORT
+        value: "9000"

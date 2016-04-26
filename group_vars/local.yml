@@ -22,3 +22,5 @@ docker_rabbitmq: registry:5000/local/rabbitmq
 docker_scala_rabbitmq_test: registry:5000/local/scala-rabbitmq-test
 docker_mariadb: registry:5000/local/mariadb
 docker_scala_mariadb_test: registry:5000/local/scala-mariadb-test
+docker_scala_grpc_test_server: registry:5000/local/scala-grpc-test-server
+docker_scala_grpc_test_client: registry:5000/local/scala-grpc-test-client
